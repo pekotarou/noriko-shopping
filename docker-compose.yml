@@ -2,7 +2,7 @@ services:
   nginx:
     image: nginx:1.21.1
     ports:
-      - "80:80"
+        - "8001:80" # 変更：のりこショッピング用
     volumes:
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./src:/var/www/
@@ -31,10 +31,9 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-    container_name: mailhog
     ports:
-      - "8025:8025"
-      - "1025:1025"
+      - "8026:8025" # 変更
+      - "1026:1025" # 変更
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -46,4 +45,4 @@ services:
     depends_on:
       - mysql
     ports:
-      - 8080:80
+      - "8081:80" # 変更
